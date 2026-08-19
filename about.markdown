@@ -1,18 +1,19 @@
 ---
-layout: default
-title: About
+layout: base 
+title: About Me
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## Contact Information
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+| Name | Email | Accounts |
+| -------------- |
+| {{ site.github.owner_name }} | {{ site.email }} | [LinkedIn]({{ site.linked_in_url }}) - [GitHub]({{ site.github.owner_url }}) |
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+## My Education
 
+| School | Degree |
+| -- |
+| Ivy Tech Community College | Associate's Degree, Computer Information Systems |
 
-[jekyll-organization]: https://github.com/jekyll
+Date earned: May 2014
