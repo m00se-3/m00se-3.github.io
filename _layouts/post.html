@@ -9,6 +9,9 @@ layout: base
     Created: {{ page.date | date: "%m-%d-%Y" }}<br/>
     {% if page.edited %}
     Last Edited: {{ page.edited }}
+    {% endif %}<br/>
+    {% if page.repo %}
+    <a href="{{ page.repo }}">View project repository.</a>
     {% endif %}
   </div>
   <hr>

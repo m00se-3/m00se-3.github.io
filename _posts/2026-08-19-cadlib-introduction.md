@@ -2,6 +2,7 @@
 layout: post
 title: Cadlib - Building a Safe Wrapper for a Legacy API
 catagory: "cadlib"
+repo: https://github.com/PlotPlanDept/cadlib
 edited: 08-20-2026
 ---
 

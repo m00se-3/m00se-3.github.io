@@ -28,9 +28,11 @@ JavaScript for one of my first video game projects. Sadly, I didn't learn how to
 dead hard drive somewhere. Anyway, I have always wanted to make useful software. A video game? Software tools? Embedded systems? I have the desire to learn
 all of it! Time, however, limits my ability to learn and practice often.
 
+For instance, I revisited an old terminal based tic-tac-toe game I made and refactored it to be safer and more testable. I plan on blogging about it soon. For
+now, though, you can find the repo [here.](https://github.com/m00se-3/tictactoe_cli/tree/production)
+
 Recently, I had the opportunity to feel like a professional programmer! I developed a C++ library that was going to be useful at my job as an AutoCAD
-technician. I took the challenge and persevered until I was out of time and needed for my real job. You can read about that project in the posts about
-cadlib. (Not a great name, I know.)
+technician. I took the challenge and persevered until I was out of time and needed for my real job. You can read about that project [here.](/2026/08/19/cadlib-introduction)
 
 Because of that experience, I'm reasonably confident I have the ability to be a professional programmer. I just need the opportunity. This blog site is
 intended to help showcase my hobby work and, maybe, land a career in software.
