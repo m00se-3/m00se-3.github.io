@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Cadlib - Building a Safe Wrapper for a Legacy API
-catagory: "cadlib"
+tag: "cadlib"
 repo: https://github.com/PlotPlanDept/cadlib
-edited: 08-20-2026
+edited: 09-01-2026
+next: /2026/08/19/cadlib-api-design-1
 ---
 
 In my days working as a Junior Civil3D Technician, there were always slow seasons during the winter months. One of these seasons presented 
@@ -22,7 +23,7 @@ limited. Since this is the case, cadlib is as of yet an unfinished product. But 
 
 ## What is cadlib?
 
-cadlib is a C++ 20 based wrapper library for AutoCAD's ObjectARX SDK. **Specifically, it wraps the version that is compatible with Civil3D 2020**. This
+cadlib is a C++ 23 based wrapper library for AutoCAD's ObjectARX SDK. **Specifically, it wraps the version that is compatible with Civil3D 2020**. This
 was the Civil3D edition my department used. It is a generic library that introduces modern coding practices to the legacy code. 
 The ObjectARX library was just the thing I needed to make my ambitions happen. I could create a shared library in C++ and link it to AutoCAD at runtime. 
 I would have access to more of Civil3D's functionality than I knew what to do with.
@@ -32,7 +33,7 @@ I would have access to more of Civil3D's functionality than I knew what to do wi
 There were several problems I wanted to solve:
 
 First, ObjectARX is very object-oriented and uses raw pointers everywhere. This meant checking for NULL many times and keeping track of everything
-you need to delete. But it didn't stop there. Some objects require the **delete** operator while others required you use special function, depending on the
+you need to delete. But it didn't stop there. Some objects require the **delete** operator while others required that you use a special function, depending on the
 context. Also, you will be interacting with several objects at a time for any sophisticated transaction. This is a memory nightmare! In addition, the object hierarchy
 is **vast** and heavily intertwined. I would need to bring order to the chaos to get anything done efficiently with reasonable guarantees.
 

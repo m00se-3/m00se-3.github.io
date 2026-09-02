@@ -30,6 +30,12 @@ github:
   owner_name: "Samuel Bridgham"
   repository_url: https://github.com/m00se-3/m00se-3.github.io
 
+cadlib:
+  full_project_name: Cadlib
+  remote_domain: GitHub
+  repository_url: "https://github.com/PlotPlanDept/cadlib"
+  short_description: A C++20 wrapper for AutoCad's ObjectARX library.
+
 # Build settings
 remote_theme: pages-themes/midnight@v0.2.0
 plugins:

@@ -17,4 +17,9 @@ layout: base
   <hr>
 </p>
 
+<p>
 {{ content }}
+</p>
+{% if page.next %}
+<span class="fork"><a href="{{ page.next | absolute_url }}">Next Post</a></span>
+{% endif %}

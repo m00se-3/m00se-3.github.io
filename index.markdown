@@ -6,7 +6,8 @@ layout: home
 title: M00se-3
 ---
 ## Projects
+{% assign cadlib_posts = site.tags.cadlib | sort %}
 
-| CADLIB - A C++20 wrapper for AutoCad's ObjectARX library. [GitHub](https://github.com/PlotPlanDept/cadlib)|
-| ------- |
-| [Introduction: Building a Memory-Safe, Type-Safe wrapper over a legacy ](/2026/08/19/cadlib-introduction) |
+| {{ site.cadlib.full_project_name }} - {{ site.cadlib.short_description }} [{{ site.cadlib.remote_domain }}]({{ site.cadlib.repository_url }}) | 
+| ------- | {% for post in cadlib_posts %}
+| [{{ post.title }}]({{ post.url }}) | {% endfor %}
