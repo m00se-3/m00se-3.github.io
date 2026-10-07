@@ -2,6 +2,7 @@
 layout: post
 title: Cadlib - API Design (Part 1)
 tag: "cadlib"
+previous: /2026/08/19/cadlib-introduction
 ---
 
 When designing an API for cadlib, recall what I said my goals were in the introduction post. The API should be "is **easy to use correctly**, no swapping parameters, no
