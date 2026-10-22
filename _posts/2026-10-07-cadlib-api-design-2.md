@@ -3,13 +3,14 @@ layout: post
 title: "Cadlib - API Design (Part 2)"
 tag: "cadlib"
 previous: /2026/09/01/cadlib-api-design-1
+edited: 10/22/2026
 ---
 
 My last post left off with working with objects using smart pointers and tables like ranges. There are more areas of interest when working
 with AutoCAD. This post will focus on AutoLisp, the primary scripting language of AutoCAD, and Result Buffers. We'll see more of the same theme
 being expounded upon in addition to using compile time logic to help reduce error-prone code.
 
-## Result Buffers and Result Codes
+## Result Buffers
 
 We'll talk about buffers first, since we need to understand this to understand certain parts of how AutoLisp communicates with AutoCAD. Result Buffers
 are a linked list of data and metadata. The metadata identifies the type of data on the next node. Basically it's a linked list of result code -> result data 
@@ -31,7 +32,7 @@ class owned_result {
   class iterator {
     public:
     using value_type = resbuf*;
-    using defference_type = std::ptrdiff_t; // Required for C++ range algorithms.
+    using difference_type = std::ptrdiff_t; // Required for C++ range algorithms.
     // Clipped
   };
   // Clipped
@@ -48,7 +49,10 @@ class weak_result {
 You might think I created <b>weak_result</b> to reference <b>owned_result</b> similarly to std::weak_ptr and std::shared_ptr. I didn't quite get around to that 
 level of sophistication, but it was good enough at the time.
 
-Now for result codes. In order to make things easier for the user, I went with some good ol' template meta programming. First I defined scoped enums for the
+## AutoLisp and Result Codes
+
+Working with AutoLisp will rely heavily on what I explained earlier. But first comes more boilerplate.
+In order to make things easier for the user, I went with some good ol' template meta programming. First I defined scoped enums for the
 various values a result code could be. 
 
 ```cpp
@@ -63,12 +67,7 @@ enum class dxf : AcDb::DxfCode {
 };
 ```
 
-Everything will start coming together soon.
-
-## AutoLisp
-
-Working with AutoLisp will rely heavily on what I explained earlier. But first comes more boilerplate. I created partially specialized templates 
-to link all the correct types and union fields at compile time.
+Then, I created partially specialized templates to link all the correct types and union fields at compile time.
 
 ```cpp
 template <res_code T>
@@ -91,8 +90,8 @@ struct lisp_getter_t<res_code::real> {
 ```
 
 There are several benefits to doing it this way. If we need to get the string representation of a result code, for logging errors, the compiler will 
-make sure we cover every case in our switch statement. By avoiding a default case, the compiler will give us an error if we forgot to account for a result code. 
-(Assuming all the appropriate warnings are enabled, which they were.) 
+make sure we cover every case in our switch statement. By avoiding a default case, the compiler will give us an error if we forget to account for a result code. 
+(Assuming all the appropriate warnings are enabled, which they were.)
 
 When we need to retrieve a Lisp symbol, we have another benefit. By passing the res_code as a template parameter, we can write our wrapper functions to give us the 
 exact symbol type we need and where in the union we need to get it from. The compiler will generate the exact code we need because we gave it all the information 
