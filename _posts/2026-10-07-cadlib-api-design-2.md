@@ -3,7 +3,7 @@ layout: post
 title: "Cadlib - API Design (Part 2)"
 tag: "cadlib"
 previous: /2026/09/01/cadlib-api-design-1
-edited: 10/22/2026
+edited: 10-22-2026
 ---
 
 My last post left off with working with objects using smart pointers and tables like ranges. There are more areas of interest when working
