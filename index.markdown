@@ -11,3 +11,9 @@ title: M00se-3
 | {{ site.cadlib.full_project_name }} - {{ site.cadlib.short_description }} [{{ site.cadlib.remote_domain }}]({{ site.cadlib.repository_url }}) | 
 | ------- | {% for post in cadlib_posts %}
 | [{{ post.title }}]({{ post.url }}) | {% endfor %}
+
+{% assign swgtk_posts = site.tags.swgtk | sort %}
+
+| {{ site.swgtk.full_project_name }} - {{ site.swgtk.short_description }} [{{ site.swgtk.remote_domain }}]({{ site.swgtk.repository_url }}) | 
+| ------- | {% for post in swgtk_posts %}
+| [{{ post.title }}]({{ post.url }}) | {% endfor %}
